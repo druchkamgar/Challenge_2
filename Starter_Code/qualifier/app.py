@@ -9,7 +9,6 @@ Example:
 import sys
 import fire
 import questionary
-import csv
 
 from pathlib import Path
 
@@ -134,19 +133,3 @@ def run():
 
 if __name__ == "__main__":
     fire.Fire(run)
-
-#User story: as a user, I need the ability to save the qualifying loans to a CSV file so that I can share the results as a spreadsheet.
-# We want to build a function that saves qualifying loans, dubbed save_qualifiy_laons
-# We then want to build a function that exports the output of function save_qualifying_loans() to a .csv. We will call this function save_csv()
-
-def save_csv():
-    # we need to add the csv package
-    # we need to define output_path
-    with open(output_path, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        # We need to create a header for the file
-        csvwriter.writerow(header)
-        # We need to link this function to the output of the function save_qualifying_loans()
-        for row in save_qualifying_loans(qualifying_loans):
-            csvwriter.writerow(row)
-
